@@ -1,0 +1,78 @@
+"Exit from insert mode with jj and move cursor to the right
+inoremap jj <Esc><Right>
+
+"Use Tilde key as an operator
+"set tildeop
+
+"Color Scheme
+color molokai
+let g:molokai_original = 1
+
+"Javascript Linter
+let g:syntastic_javascript_checkers = ['jshint']
+
+"Airline - Show buffers at the top of the screen
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+"Airline - Theme
+let g:airline_theme = 'molokai'
+
+"swap buffers and tabs
+"---------------------
+"ctrl-j for previous buffer
+"ctrl-k for next buffer
+"ctrl-l for next tab
+"ctrl-h for previous tab
+map <c-k> :bnext<cr>
+map <c-j> :bprev<cr>
+map <c-l> :tabn<cr>
+map <c-h> :tabp<cr>
+
+" hide hidden chars (tabs)
+set nolist
+
+"indentation with tabs
+nmap \t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
+
+"Other indentation options
+":nmap \T :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
+":nmap \M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
+":nmap \m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
+
+"Prevent <FEFF> unicode character from appearing after using cat
+set nobomb
+
+"Start with Relative Numbers
+set relativenumber
+
+"Toggle relative line numbers with Leader r
+nnoremap <silent><leader>r :set relativenumber!<cr>
+
+"Turn off relative numbers in insert mode
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+
+"Fix ^M line endings
+nmap \r :%s/\r/\r/g<CR>
+
+"Set format to Javascript
+nmap \j :set ft=javascript<CR>
+
+"Allow the . to execute once for each line of a visual selection
+vnoremap . :normal .<CR>
+
+"Execute macro in s register
+nmap \s @s
+
+"Execute macro in s register on all selected lines in visual mode
+vmap \s :normal @a<CR>
+
+"Hide highlighted search results
+nnoremap <Space> :noh<CR>
+
+"Add no_history to tags across buffers
+":bufdo %s/\(var CM8Profile="\)\(.*\)"/\1\2\&no_history=true/  
+
+"Add Header to SICP exercise file
+" I; Exc€kbercise jj"%pF.DF/d? xd/\di jjo; (load jji"jj"%pF/d?"xi"jjA") 
