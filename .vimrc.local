@@ -76,3 +76,21 @@ nnoremap <Space> :noh<CR>
 
 "Add Header to SICP exercise file
 " I; Exc€kbercise jj"%pF.DF/d? xd/\di jjo; (load jji"jj"%pF/d?"xi"jjA") 
+
+"Remove the smart quote
+" TextObj Quote {                                                     
+    if count(g:spf13_bundle_groups, 'writing')
+        augroup textobj_quote
+            autocmd!
+            "autocmd FileType markdown call textobj#quote#init()
+            "autocmd FileType textile call textobj#quote#init()
+            "autocmd FileType text call textobj#quote#init({'educate':#
+        augroup END
+    endif
+" }
+
+"Emmet
+Plugin 'mattn/emmet-vim'
+
+"Set Font
+set guifont=Monaco:h12
